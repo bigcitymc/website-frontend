@@ -4,5 +4,6 @@
     <NuxtLink to="/hello">Was ist BigCity</NuxtLink>
     <NuxtLink to="/impressum">Impressum</NuxtLink>
     <NuxtLink to="/datenschutz">Datenschutz</NuxtLink>
+    <NuxtLink to="/demo">Demo</NuxtLink>
   </div>
 </template>
