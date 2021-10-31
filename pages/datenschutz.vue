@@ -469,7 +469,7 @@
   </div>
 </template>
 <script>
-import ExternalLink from '~/components/Link/ExternalLink'
+import ExternalLink from '~/components/link/ExternalLink'
 export default {
   components: { ExternalLink }
 }
