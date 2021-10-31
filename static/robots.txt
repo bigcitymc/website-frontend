@@ -1,0 +1,6 @@
+User-Agent: *
+Allow: /hello
+Allow: /datenschutz
+Allow: /impressum
+
+Sitemap: sitemap.xml
