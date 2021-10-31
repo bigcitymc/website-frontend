@@ -1,6 +1,6 @@
 <template>
   <div class='header'>
-    <b-navbar toggleable="lg" type="dark" variant="dark">
+    <b-navbar toggleable="lg">
       <b-navbar-brand href="/">BigCity</b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
