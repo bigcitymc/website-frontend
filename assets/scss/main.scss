@@ -1,3 +1,4 @@
+@import "theme";
 @import "fonts_setup";
 @import "fonts";
 
@@ -6,8 +7,13 @@
   position: relative;
   display: block;
   padding: 1rem;
+  background-color: var(--bg);
+  color: var(--color-primary);
 
   .header {
+    background: var(--bg-secondary);
+    border-color: var(--border-color);
+    box-shadow: 0.25rem 0.25rem var(--shadow-color);
     border-radius: .7rem;
     margin-bottom: 1rem;
     border-style: solid;
@@ -17,6 +23,7 @@
       font-family: "Bebas Neue", sans-serif;
       font-size: 1.7rem;
       padding: 0;
+      color: var(--color-primary);
     }
   }
 }

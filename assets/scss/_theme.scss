@@ -1,0 +1,29 @@
+:root {
+  --color: #161616;
+  --color-primary: #161616;
+  --color-secondary: #202020;
+  --bg: #fff;
+  --bg-secondary: #eee;
+  --border-color: #000;
+  --shadow-color: #444;
+}
+
+.dark-mode {
+  --color: #efefef;
+  --color-primary: #efefef;
+  --color-secondary: #dfdfdf;
+  --bg: #161616;
+  --bg-secondary: #202020;
+  --border-color: #fff;
+  --shadow-color: #666;
+}
+
+.darkest-mode {
+  --color: #fff;
+  --color-primary: #fff;
+  --color-secondary: #fefefe;
+  --bg: #000;
+  --bg-secondary: #0f0f0f;
+  --border-color: #fff;
+  --shadow-color: #444;
+}
