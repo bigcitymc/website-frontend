@@ -1,0 +1,32 @@
+/* stylelint-disable */
+@mixin transition-default() {
+  transition: all ease-in-out 200ms;
+}
+
+@mixin shadow-s() {
+  box-shadow: .1rem .1rem var(--shadow-color);
+}
+
+@mixin shadow-m() {
+  box-shadow: .25rem .25rem var(--shadow-color);
+}
+
+@mixin border-s() {
+  border: var(--border-width-s) solid var(--color-primary);
+  border-radius: var(--border-radius-s);
+}
+
+@mixin border-m() {
+  border: var(--border-width-m) solid var(--color-primary);
+  border-radius: var(--border-radius-m);
+}
+
+@mixin border-l() {
+  border: var(--border-width-l) solid var(--color-primary);
+  border-radius: var(--border-radius-l);
+}
+
+@mixin border-m-radius-s() {
+  border: var(--border-width-m) solid var(--color-primary);
+  border-radius: var(--border-radius-s);
+}
