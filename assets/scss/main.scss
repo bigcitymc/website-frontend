@@ -34,11 +34,11 @@
   .header {
     background: var(--bg-secondary);
     border-color: var(--border-color);
-    box-shadow: 0.25rem 0.25rem var(--shadow-color);
-    border-radius: .7rem;
+    box-shadow: var(--box-shadow) var(--shadow-color);
+    border-radius: var(--border-radius-m);
     margin-bottom: 1rem;
     border-style: solid;
-    border-width: 5px;
+    border-width: var(--border-width-l);
 
     .navbar-brand {
       font-family: "Bebas Neue", sans-serif;

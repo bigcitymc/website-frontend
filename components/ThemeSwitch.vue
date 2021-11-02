@@ -13,6 +13,8 @@ export default {
         'light': 'Hell',
         'dark': 'Dunkel',
         'darkest': 'Schwarz',
+        'flat': 'Flat',
+        'flat-dark': 'Flat Dark',
       }
     }
   }
