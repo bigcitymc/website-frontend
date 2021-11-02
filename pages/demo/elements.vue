@@ -93,7 +93,7 @@
     <h2>Kalender</h2>
     <hr />
     <div>
-      <b-calendar></b-calendar>
+      <b-calendar :show-decade-nav='true' start-weekday='1'></b-calendar>
     </div>
     <hr />
     <hr />

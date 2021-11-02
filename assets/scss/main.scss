@@ -1,4 +1,4 @@
-/* stylelint-disable at-rule-no-unknown */
+/* stylelint-disable at-rule-no-unknown, no-descending-specificity */
 @import "theme";
 @import "fonts_setup";
 @import "fonts";
@@ -29,25 +29,27 @@
   min-height: 100vh;
   position: relative;
   display: block;
-  padding: 1rem;
+  padding: 6rem 1rem 1rem;
   background-color: var(--bg);
   color: var(--color-primary);
 
   .header {
-    @include shadow-m;
+    .navbar {
+      @include shadow-m;
 
-    background: var(--bg-secondary);
-    border-color: var(--border-color);
-    border-radius: var(--border-radius-m);
-    margin-bottom: 1rem;
-    border-style: solid;
-    border-width: var(--border-width-l);
+      background: var(--bg-secondary);
+      border-color: var(--border-color);
+      border-radius: var(--border-radius-m);
+      border-style: solid;
+      border-width: var(--border-width-l);
+      margin: 1rem;
 
-    .navbar-brand {
-      font-family: "Bebas Neue", sans-serif;
-      font-size: 1.7rem;
-      padding: 0;
-      color: var(--color-primary);
+      .navbar-brand {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.7rem;
+        padding: 0;
+        color: var(--color-primary);
+      }
     }
   }
 }
@@ -139,10 +141,41 @@ a:visited {
     }
   }
 
-  .b-calendar-grid-body {
-    .col[data-date] {
-      .btn {
-        background-color: transparent;
+  output {
+    background-color: var(--bg-secondary);
+    color: var(--color);
+  }
+
+  .b-calendar-grid {
+    background-color: var(--bg-secondary);
+    color: var(--color);
+
+    footer {
+      display: none;
+    }
+
+    .b-calendar-grid-body {
+      .col[data-date] {
+        .btn {
+          background-color: transparent;
+          box-shadow: none;
+          border-radius: var(--border-radius-s) !important;
+          color: var(--color);
+
+          &.btn-outline-primary {
+            @include border-m-radius-s;
+
+            background-color: var(--accent-color);
+            color: var(--bg)
+          }
+
+          &:not(:disabled):not(.disabled) {
+            &.active {
+              color: var(--bg);
+              background-color: var(--color);
+            }
+          }
+        }
       }
     }
   }
@@ -176,4 +209,8 @@ pre {
   background-color: var(--color-secondary);
   border-radius: var(--border-radius-s);
   padding: .1rem .3rem;
+}
+
+.text-dark {
+  color: var(--color) !important;
 }
