@@ -272,72 +272,6 @@
         </b-card-group>
       </div>
     </div>
-    <h3>Bordered</h3>
-    <div>
-      <div>
-        <b-card-group deck>
-          <b-card
-            border-variant="primary"
-            header="Primary"
-            header-bg-variant="primary"
-            header-text-variant="white"
-            align="center"
-          >
-            <b-card-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</b-card-text>
-          </b-card>
-
-          <b-card
-            border-variant="secondary"
-            header="Secondary"
-            header-border-variant="secondary"
-            align="center"
-          >
-            <b-card-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</b-card-text>
-          </b-card>
-
-          <b-card border-variant="success" header="Success" align="center">
-            <b-card-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</b-card-text>
-          </b-card>
-        </b-card-group>
-      </div>
-      <div class="mt-3">
-        <b-card-group deck>
-          <b-card border-variant="info" header="Info" align="center">
-            <b-card-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</b-card-text>
-          </b-card>
-
-          <b-card
-            border-variant="warning"
-            header="Warning"
-            header-bg-variant="transparent"
-            align="center"
-          >
-            <b-card-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</b-card-text>
-          </b-card>
-
-          <b-card
-            border-variant="danger"
-            header="Danger"
-            header-border-variant="danger"
-            header-text-variant="danger"
-            align="center"
-          >
-            <b-card-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</b-card-text>
-          </b-card>
-        </b-card-group>
-      </div>
-      <div class="mt-3">
-        <b-card-group deck class="mb-3">
-          <b-card border-variant="light" header="Light" class="text-center">
-            <b-card-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</b-card-text>
-          </b-card>
-
-          <b-card border-variant="dark" header="Dark" align="center">
-            <b-card-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</b-card-text>
-          </b-card>
-        </b-card-group>
-      </div>
-    </div>
     <h3>Mit Navigation</h3>
     <div>
       <b-card no-body>
@@ -398,9 +332,9 @@
     <h2>Accordion</h2>
     <hr />
     <div class="accordion" role="tablist">
-      <b-card no-body class="mb-1">
+      <b-card no-body>
         <b-card-header header-tag="header" class="p-1" role="tab">
-          <b-button v-b-toggle.accordion-1 block variant="info">Accordion 1</b-button>
+          <b-button v-b-toggle.accordion-1 block>Accordion 1</b-button>
         </b-card-header>
         <b-collapse id="accordion-1" visible accordion="my-accordion" role="tabpanel">
           <b-card-body>
@@ -410,9 +344,9 @@
         </b-collapse>
       </b-card>
 
-      <b-card no-body class="mb-1">
+      <b-card no-body>
         <b-card-header header-tag="header" class="p-1" role="tab">
-          <b-button v-b-toggle.accordion-2 block variant="info">Accordion 2</b-button>
+          <b-button v-b-toggle.accordion-2 block>Accordion 2</b-button>
         </b-card-header>
         <b-collapse id="accordion-2" accordion="my-accordion" role="tabpanel">
           <b-card-body>
@@ -421,9 +355,9 @@
         </b-collapse>
       </b-card>
 
-      <b-card no-body class="mb-1">
+      <b-card no-body>
         <b-card-header header-tag="header" class="p-1" role="tab">
-          <b-button v-b-toggle.accordion-3 block variant="info">Accordion 3</b-button>
+          <b-button v-b-toggle.accordion-3 block>Accordion 3</b-button>
         </b-card-header>
         <b-collapse id="accordion-3" accordion="my-accordion" role="tabpanel">
           <b-card-body>
@@ -511,7 +445,6 @@
         variant="transparent"
         opacity="1.00"
         blur="5px"
-        rounded="circle"
       >
         <b-card title="Card with overlay" aria-hidden="true">
           <b-card-text>
