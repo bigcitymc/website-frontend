@@ -417,3 +417,32 @@ hr {
     }
   }
 }
+
+.table {
+  @include border-m;
+  @include shadow-m;
+
+  border-radius: 0;
+
+  thead {
+    border-bottom: var(--border-width-m) solid var(--color);
+    background-color: var(--color);
+    color: var(--bg)
+  }
+
+  tbody {
+    color: var(--color);
+  }
+}
+
+.progress {
+  @include border-s;
+  @include shadow-s;
+
+  background-color: var(--bg-secondary);
+
+  .progress-bar {
+    background-color: var(--color-secondary);
+    color: var(--bg-secondary);
+  }
+}
