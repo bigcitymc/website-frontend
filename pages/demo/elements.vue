@@ -2,6 +2,7 @@
   <main>
     <NuxtLink to="/demo">Demo Start Page</NuxtLink>
     <NuxtLink to="/demo/elements">Elements</NuxtLink>
+    <NuxtLink to="/demo/components">Komponenten</NuxtLink>
     <hr />
     <h1>(HTML-)Elemente</h1>
     <p>
@@ -12,12 +13,12 @@
     ------------------------------------------------------------------------------------------------------------------->
     <h2>Headlines</h2>
     <hr />
-    <h1>Headline H1</h1>
-    <h2>Headline H2</h2>
-    <h3>Headline H3</h3>
-    <h4>Headline H4</h4>
-    <h5>Headline H5</h5>
-    <h6>Headline H6</h6>
+    <Headline level="1" content="Headline H1"></Headline>
+    <Headline level="2" content="Headline H2"></Headline>
+    <Headline level="3" content="Headline H3"></Headline>
+    <Headline level="4" content="Headline H4"></Headline>
+    <Headline level="5" content="Headline H5"></Headline>
+    <Headline level="6" content="Headline H6"></Headline>
     <hr />
     <hr />
     <!------------------------------------------------------------------------------------------------------------------
@@ -93,7 +94,7 @@
     <h2>Kalender</h2>
     <hr />
     <div>
-      <b-calendar :show-decade-nav='true' start-weekday='1'></b-calendar>
+      <Calendar></Calendar>
     </div>
     <hr />
     <hr />
@@ -579,8 +580,10 @@
 </template>
 <script>
 import ExternalLink from '~/components/link/ExternalLink'
+import Headline from "~/components/elements/Headline";
+import Calendar from "~/components/elements/Calendar";
 export default {
-  components: { ExternalLink },
+  components: {Calendar, Headline, ExternalLink },
   data() {
     return {
       placements: [
