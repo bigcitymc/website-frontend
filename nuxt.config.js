@@ -44,10 +44,13 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    '@nuxtjs/auth-next'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    baseURL: 'https://api.bigcitymc.com'
+  },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
@@ -63,5 +66,55 @@ export default {
   // Storybook
   storybook: {
     // Options
+  },
+
+  // https://www.digitalocean.com/community/tutorials/implementing-authentication-in-nuxtjs-app
+  // https://auth.nuxtjs.org/schemes/local
+  // https://auth.nuxtjs.org/schemes/local/#token
+  // https://auth.nuxtjs.org/schemes/local/#autofetch
+  auth: {
+    strategies: {
+      cookie: {
+        cookie: {
+          name: 'X-CSRF-Token'
+        },
+        user: {
+          property: 'data.current_user',
+          autoFetch: false,
+        },
+        token: {
+          property: 'data.csrf_token',
+        },
+        endpoints: {
+          csrf: {
+            url: 'session/token'
+          },
+          login: {
+            url: 'user/login?_format=json',
+            method: 'post'
+          },
+          logout: false,
+          user: {
+            url: 'user/login?_format=json',
+            method: 'post',
+            propertyName: 'data.current_user'
+          }
+        }
+      },
+      local: {
+        user: {
+          property: 'data.current_user',
+          autoFetch: false,
+        },
+        endpoints: {
+          login: {
+            url: 'user/login?_format=json',
+            method: 'post',
+            propertyName: 'data.csrf_token'
+          },
+          logout: false
+        }
+      }
+    }
   }
 }

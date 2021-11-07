@@ -28,13 +28,13 @@ export default {
   created() {
     this.slug = this.content
       .toLowerCase()
-      .replaceAll('ä', 'ae')
-      .replaceAll('ö', 'oe')
-      .replaceAll('ü', 'ue')
-      .replaceAll('ß', 'ss')
-      .replaceAll(' ', '-')
-      .replaceAll('_', '-')
-      .replaceAll(/^\W.+$/g, '')
+      .replace(/^ä$/g, 'ae')
+      .replace(/^ö$/g, 'oe')
+      .replace(/^ü$/g, 'ue')
+      .replace(/^ß$/g, 'ss')
+      .replace(/^ $/g, '-')
+      .replace(/^_$/g, '-')
+      .replace(/^\W.+$/g, '')
     ;
   }
 }
