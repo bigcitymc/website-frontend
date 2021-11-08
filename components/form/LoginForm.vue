@@ -41,10 +41,10 @@ export default {
         //   pass: this.form.password,
         // });
 
-        await this.$auth.loginWith('cookie', {
+        await this.$auth.loginWith('oauth', {
           data: {
-            name: this.form.username,
-            pass: this.form.password
+            username: this.form.username,
+            password: this.form.password,
           }
         }).then((data) => {
           // eslint-disable-next-line no-console

@@ -74,6 +74,27 @@ export default {
   // https://auth.nuxtjs.org/schemes/local/#autofetch
   auth: {
     strategies: {
+      oauth: {
+        scheme: 'oauth2',
+        endpoints: {
+          authorization: 'oauth/token',
+          token: 'oauth/token',
+          userInfo: 'user/login?_format=json',
+          logout: 'user/logout?_format=json',
+        },
+        token: {
+          property: 'data.access_token',
+          type: 'Bearer',
+          maxAge: 300,
+        },
+        refreshToken: {
+          property: 'data.refresh_token',
+          maxAge: 1209600
+        },
+        clientId: 'cf7c04d0-b6dd-4d2e-ad5d-501d389c7b43',
+        state: 'HBnsHFHdVbkEajGFGBchu94KHk8yMXvUMNP2tc4y3gcKgKdVVJf92zjWGFwsqe8F',
+        scope: ['user']
+      },
       cookie: {
         cookie: {
           name: 'X-CSRF-Token'
