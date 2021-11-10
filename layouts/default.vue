@@ -18,6 +18,10 @@ export default {
   components: { Header, Footer },
   computed: {
     ...mapGetters(['isAuthenticated', 'loggedInUser'])
+  },
+  created() {
+    // eslint-disable-next-line no-console
+    console.debug(this.$auth);
   }
 }
 </script>

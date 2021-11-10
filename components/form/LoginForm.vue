@@ -42,33 +42,28 @@ export default {
         // });
 
         await this.$auth.loginWith('refresh', {
-          data: {
-            username: this.form.username,
-            password: this.form.password,
-          }
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          },
+          data: `grant_type=password&client_id=cf7c04d0-b6dd-4d2e-ad5d-501d389c7b43&client_secret=HBnsHFHdVbkEajGFGBchu94KHk8yMXvUMNP2tc4y3gcKgKdVVJf92zjWGFwsqe8F&scope&username=${this.form.username}&password=${this.form.password}`
         }).then((data) => {
+          this.$auth.setUserToken(data.data.access_token, data.data.refresh_token);
           // eslint-disable-next-line no-console
-          console.warn(data.data);
-          // eslint-disable-next-line no-console
-          console.warn(data.data);
-          // eslint-disable-next-line no-console
-          console.warn(data.data.current_user);
-          this.$auth.setUser(data.data.current_user);
-          this.$auth.$storage.setCookie('X-CSRF-Token', data.data.csrf_token);
+          console.debug(this.$auth);
           this.$bvToast.toast(`Willkommen zurück!`, {
-            title: 'Beim Login ist ein Fehler aufgetreten',
             autoHideDelay: 5000,
             variant: 'success',
           })
         });
 
-        await this.$router.push('/');
+        // await this.$router.push('/login');
       } catch (e) {
         // eslint-disable-next-line no-console
         console.log(e);
         this.$bvToast.toast(`${e}`, {
           title: 'Beim Login ist ein Fehler aufgetreten',
           noAutoHide: true,
+          variant: 'danger',
         })
       }
     }

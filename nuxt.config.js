@@ -95,7 +95,14 @@ export default {
         endpoints: {
           login: {
             url: 'oauth/token',
-            method: 'post'
+            method: 'post',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded'
+            }
+          },
+          user: {
+            url: 'user?_format=json',
+            method: 'get'
           }
         }
       },
