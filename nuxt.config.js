@@ -72,14 +72,45 @@ export default {
   // https://auth.nuxtjs.org/schemes/local
   // https://auth.nuxtjs.org/schemes/local/#token
   // https://auth.nuxtjs.org/schemes/local/#autofetch
+  // Hint: https://drupal.stackexchange.com/questions/292684/how-to-get-user-data-authenticate-with-bearer-token-simple-oauth-decoupled
   auth: {
     strategies: {
+      // https://auth.nuxtjs.org/schemes/refresh/
+      // https://auth.nuxtjs.org/providers/laravel-jwt
+      refresh: {
+        scheme: 'refresh',
+        token: {
+          property: 'data.access_token',
+          maxAge: 300,
+          global: true,
+        },
+        refreshToken: {
+          property: 'data.refresh_token',
+          data: 'refresh_token',
+          maxAge: 1209600
+        },
+        user: {
+          property: 'data.current_user',
+        },
+        endpoints: {
+          login: {
+            url: 'oauth/token',
+            method: 'post'
+          }
+        }
+      },
+      // https://auth.nuxtjs.org/schemes/oauth2/
+      // https://auth.nuxtjs.org/providers/discord/
+      // https://auth.nuxtjs.org/providers/github/
       oauth: {
         scheme: 'oauth2',
         endpoints: {
-          authorization: 'oauth/token',
-          token: 'oauth/token',
-          userInfo: 'user/login?_format=json',
+          authorization: 'https://api.bigcitymc.com/oauth/token',
+          token: 'https://api.bigcitymc.com/oauth/token',
+          userInfo: {
+            url: 'user/login?_format=json',
+            method: 'post'
+          },
           logout: 'user/logout?_format=json',
         },
         token: {
@@ -93,7 +124,9 @@ export default {
         },
         clientId: 'cf7c04d0-b6dd-4d2e-ad5d-501d389c7b43',
         state: 'HBnsHFHdVbkEajGFGBchu94KHk8yMXvUMNP2tc4y3gcKgKdVVJf92zjWGFwsqe8F',
-        scope: ['user']
+        scope: ['user'],
+        accessType: 'offline',
+        responseType: 'code',
       },
       cookie: {
         cookie: {

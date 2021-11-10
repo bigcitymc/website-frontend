@@ -41,7 +41,7 @@ export default {
         //   pass: this.form.password,
         // });
 
-        await this.$auth.loginWith('oauth', {
+        await this.$auth.loginWith('refresh', {
           data: {
             username: this.form.username,
             password: this.form.password,
