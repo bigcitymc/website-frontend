@@ -1,3 +1,5 @@
+import OAuth from '~/bigcity'
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -68,15 +70,8 @@ export default {
     // Options
   },
 
-  // https://www.digitalocean.com/community/tutorials/implementing-authentication-in-nuxtjs-app
-  // https://auth.nuxtjs.org/schemes/local
-  // https://auth.nuxtjs.org/schemes/local/#token
-  // https://auth.nuxtjs.org/schemes/local/#autofetch
-  // Hint: https://drupal.stackexchange.com/questions/292684/how-to-get-user-data-authenticate-with-bearer-token-simple-oauth-decoupled
   auth: {
     strategies: {
-      // https://auth.nuxtjs.org/schemes/refresh/
-      // https://auth.nuxtjs.org/providers/laravel-jwt
       refresh: {
         scheme: 'refresh',
         token: {
@@ -90,7 +85,7 @@ export default {
           maxAge: 1209600
         },
         user: {
-          property: 'data.current_user',
+          property: 'data',
         },
         endpoints: {
           login: {
@@ -101,79 +96,17 @@ export default {
             }
           },
           user: {
-            url: 'user?_format=json',
+            url: 'api/v1/user/current',
             method: 'get'
-          }
-        }
-      },
-      // https://auth.nuxtjs.org/schemes/oauth2/
-      // https://auth.nuxtjs.org/providers/discord/
-      // https://auth.nuxtjs.org/providers/github/
-      oauth: {
-        scheme: 'oauth2',
-        endpoints: {
-          authorization: 'https://api.bigcitymc.com/oauth/token',
-          token: 'https://api.bigcitymc.com/oauth/token',
-          userInfo: {
-            url: 'user/login?_format=json',
-            method: 'post'
           },
-          logout: 'user/logout?_format=json',
-        },
-        token: {
-          property: 'data.access_token',
-          type: 'Bearer',
-          maxAge: 300,
-        },
-        refreshToken: {
-          property: 'data.refresh_token',
-          maxAge: 1209600
-        },
-        clientId: 'cf7c04d0-b6dd-4d2e-ad5d-501d389c7b43',
-        state: 'HBnsHFHdVbkEajGFGBchu94KHk8yMXvUMNP2tc4y3gcKgKdVVJf92zjWGFwsqe8F',
-        scope: ['user'],
-        accessType: 'offline',
-        responseType: 'code',
-      },
-      cookie: {
-        cookie: {
-          name: 'X-CSRF-Token'
-        },
-        user: {
-          property: 'data.current_user',
-          autoFetch: false,
-        },
-        token: {
-          property: 'data.csrf_token',
-        },
-        endpoints: {
-          csrf: {
-            url: 'session/token'
-          },
-          login: {
-            url: 'user/login?_format=json',
-            method: 'post'
-          },
-          logout: false,
-          user: {
-            url: 'user/login?_format=json',
+          refresh: {
+            url: 'oauth/token',
             method: 'post',
-            propertyName: 'data.current_user'
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            data: OAuth.getRefreshTokenData()
           }
-        }
-      },
-      local: {
-        user: {
-          property: 'data.current_user',
-          autoFetch: false,
-        },
-        endpoints: {
-          login: {
-            url: 'user/login?_format=json',
-            method: 'post',
-            propertyName: 'data.csrf_token'
-          },
-          logout: false
         }
       }
     }

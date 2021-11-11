@@ -23,6 +23,8 @@
 </template>
 
 <script>
+import OAuth from '~/bigcity'
+
 export default {
   name: "LoginForm",
   data() {
@@ -36,20 +38,13 @@ export default {
   methods: {
     async onSubmit() {
       try {
-        // await this.$axios.post('user/login?_format=json', {
-        //   name: this.form.username,
-        //   pass: this.form.password,
-        // });
-
         await this.$auth.loginWith('refresh', {
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
           },
-          data: `grant_type=password&client_id=cf7c04d0-b6dd-4d2e-ad5d-501d389c7b43&client_secret=HBnsHFHdVbkEajGFGBchu94KHk8yMXvUMNP2tc4y3gcKgKdVVJf92zjWGFwsqe8F&scope&username=${this.form.username}&password=${this.form.password}`
+          data: OAuth.getAccessTokenData(this.form.username, this.form.password)
         }).then((data) => {
           this.$auth.setUserToken(data.data.access_token, data.data.refresh_token);
-          // eslint-disable-next-line no-console
-          console.debug(this.$auth);
           this.$bvToast.toast(`Willkommen zurück!`, {
             autoHideDelay: 5000,
             variant: 'success',
