@@ -2,9 +2,9 @@
   <div class='layout layout-default'>
     <Header></Header>
     <Nuxt />
-    <pre>{{ $store.state }}</pre>
-    <pre>{{ $auth.user }}</pre>
-    <pre v-if='isAuthenticated'>{{ loggedInUser.name }}</pre>
+<!--    <pre>{{ $store.state }}</pre>-->
+<!--    <pre>{{ $auth.user }}</pre>-->
+<!--    <pre v-if='isAuthenticated'>{{ loggedInUser.name }}</pre>-->
     <Footer></Footer>
   </div>
 </template>

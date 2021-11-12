@@ -9,15 +9,11 @@
 
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
-          <ThemeSwitch></ThemeSwitch>
+<!--          <ThemeSwitch></ThemeSwitch>-->
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
   </div>
 </template>
 <script>
-import ThemeSwitch from '~/components/ThemeSwitch'
-export default {
-  components: { ThemeSwitch }
-}
 </script>
