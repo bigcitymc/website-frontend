@@ -1,5 +1,3 @@
-import OAuth from '~/bigcity'
-
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -104,8 +102,7 @@ export default {
             method: 'post',
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            data: OAuth.getRefreshTokenData()
+            }
           }
         }
       }
